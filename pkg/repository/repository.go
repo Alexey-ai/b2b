@@ -1,10 +1,10 @@
 package repository
 
-type Test interface {
+type B2B interface {
 }
 
 type Repository struct {
-	Test
+	B2B
 }
 
 func NewRepository() *Repository {

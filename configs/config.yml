@@ -1,1 +1,3 @@
 port: "8000"
+
+b2bhost: "http://localhost:666/v01/request/B2B/1000003/{TxId}/{MsgType}"
