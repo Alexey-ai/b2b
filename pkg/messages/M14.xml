@@ -10,7 +10,7 @@
             <header:FIId>
                 <header:FinInstnId>
                     <header:Othr>
-                        <header:Id>999999999999<!--23 Идентификатор ОПКЦ СБП--></header:Id>
+                        <header:Id>000000000000</header:Id>
                     </header:Othr>
                 </header:FinInstnId>
             </header:FIId>
@@ -19,16 +19,15 @@
             <header:FIId>
                 <header:FinInstnId>
                     <header:Othr>
-                        <header:Id>222222222222<!--24 Идентификатор Банка Получателя--></header:Id>
+                        <header:Id>100000000003</header:Id>
                     </header:Othr>
                 </header:FinInstnId>
             </header:FIId>
         </header:To>
-        <header:BizMsgIdr>X1A2S3D5F6G7H8J9K0C4S5C6D7V5D1K2<!--27 Идентификатор Операции ОПКЦ СБП--></header:BizMsgIdr>
-        <header:MsgDefIdr>pacs.002.001.09<!--43 Схема Сообщения СБП (ISO-20022-2013)--></header:MsgDefIdr>
-        <header:BizSvc>M14<!--98 Тип Сообщения СБП-->
-        </header:BizSvc>
-        <header:CreDt>2001-12-17T09:30:47.000Z<!--15 Дата и Время Отправки Сообщения ОПКЦ СБП--></header:CreDt>
+		<header:BizMsgIdr>{TxId}</header:BizMsgIdr>
+        <header:MsgDefIdr>pacs.002.001.09</header:MsgDefIdr>
+        <header:BizSvc>M14</header:BizSvc>
+        <header:CreDt>2022-10-05T13:31:21.030Z</header:CreDt>
         <header:Sgntr>
             <sign:Sign>MIIBYAYJKoZIhvcNAQcCoIIBUTCCAU0CAQExDjAMBggqhQMHAQECAgUAMAsGCSqGSIb3DQEHATGCASkwggElAgEBMFcwQzELMAkGA1UEBhMCUlUxCzAJBgNVBAgTAjQ1MQwwCgYDVQQKEwNDQlIxDDAKBgNVBAsTA01DSTELMAkGA1UEAxMCQ0ECEEBQFMADuZh/it28c1puz98wDAYIKoUDBwEBAgIFAKBpMBgGCSqGSIb3DQEJAzELBgkqhkiG9w0BBwEwHAYJKoZIhvcNAQkFMQ8XDTE4MTIxODIxMjUwOFowLwYJKoZIhvcNAQkEMSIEIDyX/DEuO2RJ87D4rm8qI29IE0X7hpVPgDSvie9GufqMMAwGCCqFAwcBAQEBBQAEQFi0UjbNG3vUE+enkf9WRXSOkCxd2SS2mfYf6NxX3fnsjc73FKVfUTAxLSCkdW81D+hgJiHoVXA7ImggKxWipuE=<!--106 Электронная Подпись-->
             </sign:Sign>
@@ -38,7 +37,7 @@
                 <header:FIId>
                     <header:FinInstnId>
                         <header:Othr>
-                            <header:Id>222222222222<!--24 Идентификатор Банка Получателя--></header:Id>
+                            <header:Id>100000000003</header:Id>
                         </header:Othr>
                     </header:FinInstnId>
                 </header:FIId>
@@ -47,52 +46,52 @@
                 <header:FIId>
                     <header:FinInstnId>
                         <header:Othr>
-                            <header:Id>999999999999<!--23 Идентификатор ОПКЦ СБП--></header:Id>
+                            <header:Id>000000000000</header:Id>
                         </header:Othr>
                     </header:FinInstnId>
                 </header:FIId>
             </header:To>
-            <header:BizMsgIdr>X1A2S3D5F6G7H8J9K0C4S5C6D7V5D1K2<!--27 Идентификатор Операции ОПКЦ СБП--></header:BizMsgIdr>
-            <header:MsgDefIdr>pacs.028.001.02<!--43 Схема Сообщения СБП (ISO-20022-2013)--></header:MsgDefIdr>
-            <header:BizSvc>M13<!--98 Тип Сообщения СБП--></header:BizSvc>
-            <header:CreDt>2001-12-17T09:30:47.000Z<!--14 Дата и Время Отправки Сообщения Банка Получателя--></header:CreDt>
+            <header:BizMsgIdr>{MsgId}</header:BizMsgIdr>
+            <header:MsgDefIdr>pacs.028.001.02</header:MsgDefIdr>
+            <header:BizSvc>M13</header:BizSvc>
+            <header:CreDt>2022-10-05T18:31:08.393Z</header:CreDt>
         </header:Rltd>
     </header:AppHdr>
     <document:Document>
         <document:FIToFIPmtStsRpt>
             <document:GrpHdr>
-                <document:MsgId>1A2F3D5F6G7Z8J9K0C4S5C6D7V5D1Z90<!--81 Уникальный Номер Сообщения от ОПКЦ СБП--></document:MsgId>
-                <document:CreDtTm>2001-12-17T09:30:47.000Z<!--15 Дата и Время Отправки Сообщения ОПКЦ СБП--></document:CreDtTm>
+                <document:MsgId>{MsgId}</document:MsgId>
+                <document:CreDtTm>2022-10-05T13:31:21.030Z</document:CreDtTm>
             </document:GrpHdr>
             <document:OrgnlGrpInfAndSts>
-                <document:OrgnlMsgId>1A2F3D5F6G7Z8J9K0C4S5C6D7V5D1F12<!--80 Уникальный Номер Сообщения от Банка Получателя из оригинального запроса--></document:OrgnlMsgId>
-                <document:OrgnlMsgNmId>M13<!--98 Тип Сообщения СБП из оригинального запроса--></document:OrgnlMsgNmId>
-                <document:OrgnlCreDtTm>2001-12-17T09:30:47.000Z<!--14 Дата и Время Отправки Сообщения Банка Получателя из оригинального запроса--></document:OrgnlCreDtTm>
+                <document:OrgnlMsgId>{OrgMsgId}</document:OrgnlMsgId>
+                <document:OrgnlMsgNmId>M13</document:OrgnlMsgNmId>
+                <document:OrgnlCreDtTm>2022-10-05T18:31:08.393Z</document:OrgnlCreDtTm>
             </document:OrgnlGrpInfAndSts>
             <document:TxInfAndSts>
-                <document:OrgnlEndToEndId>B2B<!--48 Тип Операции СБП--></document:OrgnlEndToEndId>
-                <document:OrgnlTxId>X1A2S3D5F6G7H8J9K0C4S5C6D7V5D1K2<!--27 Идентификатор Операции ОПКЦ СБП--></document:OrgnlTxId>
-                <document:TxSts>ACWP<!--42 Статус Операции СБП--></document:TxSts>
+                <document:OrgnlEndToEndId>B2B</document:OrgnlEndToEndId>
+                <document:OrgnlTxId>{TxId}</document:OrgnlTxId>
+                <document:TxSts>ACWP</document:TxSts>
                 <document:StsRsnInf>
                     <document:Rsn>
-                        <document:Prtry>I00000<!--29 Код Ответа--></document:Prtry>
+                        <document:Prtry>I00000</document:Prtry>
                     </document:Rsn>
-                    <document:AddtlInf>OK<!--текстовое описание кода ответа в случае негативного сценария--></document:AddtlInf>
+                    <document:AddtlInf>OK</document:AddtlInf>
                 </document:StsRsnInf>
-                <document:AccptncDtTm>2001-12-17T09:30:47.000Z<!--99 Метка Времени Операции СБП--></document:AccptncDtTm>
+                <document:AccptncDtTm>2022-10-05T18:31:08.393Z</document:AccptncDtTm>
                 <document:OrgnlTxRef>
-                    <document:IntrBkSttlmDt>2001-12-17<!--105 Дата Расчета Операции СБП--></document:IntrBkSttlmDt>
+                    <document:IntrBkSttlmDt>2022-10-05</document:IntrBkSttlmDt>
                     <document:DbtrAgt>
                         <document:FinInstnId>
                             <document:Othr>
-                                <document:Id>111111111111<!--22 Идентификатор Банка Плательщика--></document:Id>
+                                <document:Id>100000000003</document:Id>
                             </document:Othr>
                         </document:FinInstnId>
                     </document:DbtrAgt>
                     <document:CdtrAgt>
                         <document:FinInstnId>
                             <document:Othr>
-                                <document:Id>222222222222<!--24 Идентификатор Банка Получателя--></document:Id>
+                                <document:Id>100000000003</document:Id>
                             </document:Othr>
                         </document:FinInstnId>
                     </document:CdtrAgt>
@@ -100,10 +99,10 @@
                 <document:SplmtryData>
                     <document:Envlp>
                         <document:IpsDt>
-                            <document:TrnCV>00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000<!--103 КЗО--></document:TrnCV>
-                            <document:OperDate>2019-01-01<!--112 Операционный День Обработки Сообщения ОПКЦ СБП--></document:OperDate>
-                            <document:OperSubType>B2BPUSH<!--49 Тип Сценария Операции СБП--></document:OperSubType>
-                            <document:OperProcDate>2001-12-17<!--111 Операционный День Обработки Операции ОПКЦ СБП--></document:OperProcDate>
+                            <document:TrnCV>00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000</document:TrnCV>
+                            <document:OperDate>2022-10-05</document:OperDate>
+                            <document:OperSubType>B2BPUSH</document:OperSubType>
+                            <document:OperProcDate>2022-10-05</document:OperProcDate>
                         </document:IpsDt>
                     </document:Envlp>
                 </document:SplmtryData>

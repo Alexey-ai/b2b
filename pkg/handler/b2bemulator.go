@@ -1,21 +1,19 @@
 package handler
 
 import (
-	"fmt"
 	"io"
 	"net/http"
-	"os"
+
+	//"os"
+	"regexp"
 	"strings"
 
 	"github.com/Alexey-ai/b2b"
 	"github.com/Alexey-ai/b2b/pkg/service"
 	"github.com/gin-gonic/gin"
 	"github.com/google/uuid"
+	log "github.com/sirupsen/logrus"
 )
-
-var M06 string
-var M07 string
-var M21 string
 
 func (h *Handler) testPost(c *gin.Context) {
 
@@ -40,55 +38,51 @@ func (h *Handler) testGet(c *gin.Context) {
 }
 
 func (h *Handler) B2BPost(c *gin.Context) {
-	m06, err := os.Open("messages/M06.xml")
-	defer m06.Close()
-	m07, err := os.Open("messages/M07.xml")
-	defer m07.Close()
-	m21, err := os.Open("messages/M21.xml")
-	defer m21.Close()
-	if err != nil {
-		println(err)
-	}
-
-	file, err := io.ReadAll(m21)
-	M21 = string(file)
-	file, err = io.ReadAll(m06)
-	M06 = string(file)
-	file, err = io.ReadAll(m07)
-	M07 = string(file)
-
 	defer c.Request.Body.Close()
-	ctx := service.NewEmulatorContext()
-	ctx.ContentType = c.Request.Header.Get("Content-Type")
 	body, err := io.ReadAll(c.Request.Body)
+	var requestBody string = string(body)
+	r, _ := regexp.Compile(`MsgId>[A-z0-9]{32}<`)
+	n, _ := regexp.Compile(`[A-z0-9]{32}`)
+	var msgId string = r.FindString(requestBody)
+	if c.Param("txId") == "M05" {
+		c.AddParam("messageType", "M05")
+	}
+	log.Info("got " + c.Param("messageType"))
 	txId := c.Param("txId")
-	if len(txId) > 0 {
+	ctx := service.GetCtxbyType(c.Param("messageType"))
+	ctx.ContentType = c.Request.Header.Get("Content-Type")
+	ctx.OriginalMessageId = n.FindString(msgId)
+
+	if len(txId) > 0 && txId != "M05" {
 		ctx.TxId = txId
 	} else {
 		ctx.TxId = strings.Replace(uuid.New().String(), "-", "", -1)
 	}
-	//httpResponse.Header()["X-SBP-TRN-NUM"] = []string{ctx.TxId}
-	//httpResponse.Write([]byte("OK"))
+	c.Writer.Header().Add("X-SBP-TRN-NUM", ctx.TxId)
+	c.AbortWithStatus(200)
 	//if strings.Contains(ctx.ContentType, "stream") {
 	//	body = *Cryptography.NewCryptographyService(cfg).Decrypt(&body)
 	//}
 
 	if err != nil {
-		fmt.Printf("error parse: %v", err)
+		log.Error("error parse: %v", err)
 		return
 	}
 
-	ctx.OriginalMessageId = string(ctx.Regex.FindSubmatch(body)[1])
-	ctx.M21 = M21
-	ctx.M07 = M07
-	ctx.M06 = M06
-
 	switch c.Param("messageType") {
 	case "M05":
-		service.NewM05Handler(ctx).Handle()
+		go service.NewM05Handler(ctx).Handle()
 	case "M08":
-		service.NewM08Handler(ctx).Handle()
+		go service.NewM08Handler(ctx).Handle()
+	case "M11":
+		go service.NewM11Handler(ctx).Handle()
+	case "M13":
+		go service.NewM13Handler(ctx).Handle()
+	case "M22":
+		log.Info("got M22")
+	case "M24":
+		log.Info("got M24")
 	default:
-		println("Unsupported request " + c.Request.URL.String())
+		log.Info("Unsupported request " + c.Request.URL.String())
 	}
 }

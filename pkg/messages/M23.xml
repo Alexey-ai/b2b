@@ -1,97 +1,97 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<IPSEnvelope xmlns="ISO200022PayMessageResponse"
-             xmlns:header="urn:iso:std:iso:20022:tech:xsd:head.001.001.01"
-             xmlns:document="urn:iso:std:iso:20022:tech:xsd:pacs.002.001.09"
-             xmlns:sign="http://www.w3.org/2000/09/xmldsig#"
-             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-             xsi:schemaLocation="ISO200022PayMessageResponse PayMsgRes.xsd">
-    <header:AppHdr>
-        <header:Fr>
-            <header:FIId>
-                <header:FinInstnId>
-                    <header:Othr>
-                        <header:Id>999999999999<!--23 Идентификатор ОПКЦ СБП--></header:Id>
-                    </header:Othr>
-                </header:FinInstnId>
-            </header:FIId>
-        </header:Fr>
-        <header:To>
-            <header:FIId>
-                <header:FinInstnId>
-                    <header:Othr>
-                        <header:Id>222222222222<!--24 Идентификатор Банка Получателя--></header:Id>
-                    </header:Othr>
-                </header:FinInstnId>
-            </header:FIId>
-        </header:To>
-        <header:BizMsgIdr>X1A2S3D5F6G7H8J9K0C4S5C6D7V5D1K2<!--27 Идентификатор Операции ОПКЦ СБП--></header:BizMsgIdr>
-        <header:MsgDefIdr>pacs.002.001.09<!--43 Схема Сообщения СБП (ISO-20022-2013)--></header:MsgDefIdr>
-        <header:BizSvc>M23<!--98 Тип Сообщения СБП--></header:BizSvc>
-        <header:CreDt>2001-12-17T09:30:47.000Z<!--15 Дата и Время Отправки Сообщения ОПКЦ СБП--></header:CreDt>
-        <header:Sgntr>
-            <sign:Sign>MIIBYAYJKoZIhvcNAQcCoIIBUTCCAU0CAQExDjAMBggqhQMHAQECAgUAMAsGCSqGSIb3DQEHATGCASkwggElAgEBMFcwQzELMAkGA1UEBhMCUlUxCzAJBgNVBAgTAjQ1MQwwCgYDVQQKEwNDQlIxDDAKBgNVBAsTA01DSTELMAkGA1UEAxMCQ0ECEEBQFMADuZh/it28c1puz98wDAYIKoUDBwEBAgIFAKBpMBgGCSqGSIb3DQEJAzELBgkqhkiG9w0BBwEwHAYJKoZIhvcNAQkFMQ8XDTE4MTIxODIxMjUwOFowLwYJKoZIhvcNAQkEMSIEIDyX/DEuO2RJ87D4rm8qI29IE0X7hpVPgDSvie9GufqMMAwGCCqFAwcBAQEBBQAEQFi0UjbNG3vUE+enkf9WRXSOkCxd2SS2mfYf6NxX3fnsjc73FKVfUTAxLSCkdW81D+hgJiHoVXA7ImggKxWipuE=<!--106 Электронная Подпись-->
-            </sign:Sign>
-        </header:Sgntr>
-    </header:AppHdr>
-    <document:Document>
-        <document:FIToFIPmtStsRpt>
-            <document:GrpHdr>
-                <document:MsgId>1A2F3D5F6G7Z8J9K0C4S5C6D7V5D1N6<!--81 Уникальный Номер Сообщения от ОПКЦ СБП--></document:MsgId>
-                <document:CreDtTm>2001-12-17T09:30:47.000Z<!--15 Дата и Время Отправки Сообщения ОПКЦ СБП--></document:CreDtTm>
-            </document:GrpHdr>
-            <document:TxInfAndSts>
-                <document:OrgnlEndToEndId>B2B<!--48 Тип Операции СБП--></document:OrgnlEndToEndId>
-                <document:OrgnlTxId>X1A2S3D5F6G7H8J9K0C4S5C6D7V5D1K2<!--27 Идентификатор Операции ОПКЦ СБП--></document:OrgnlTxId>
-                <document:TxSts>ACWP<!--42 Статус Операции СБП--></document:TxSts>
-                <document:StsRsnInf>
-                    <document:Rsn>
-                        <document:Prtry>000000<!--29 Код Ответа--></document:Prtry>
-                    </document:Rsn>
-                    <document:AddtlInf>OK<!--текстовое описание кода ответа в случае негативного сценария--></document:AddtlInf>
-                </document:StsRsnInf>
-                <document:AccptncDtTm>2001-12-17T09:30:47.000Z<!--99 Метка Времени Операции СБП--></document:AccptncDtTm>
-                <document:OrgnlTxRef>
-                    <document:IntrBkSttlmDt>2001-12-17<!--105 Дата Расчета Операции СБП--></document:IntrBkSttlmDt>
-                    <document:DbtrAgt>
-                        <document:FinInstnId>
-                            <document:Othr>
-                                <document:Id>111111111111<!--22 Идентификатор Банка Плательщика--></document:Id>
-                            </document:Othr>
-                        </document:FinInstnId>
-                    </document:DbtrAgt>
-                    <document:CdtrAgt>
-                        <document:FinInstnId>
-                            <document:Othr>
-                                <document:Id>222222222222<!--24 Идентификатор Банка Получателя--></document:Id>
-                            </document:Othr>
-                        </document:FinInstnId>
-                    </document:CdtrAgt>
-                    <document:Cdtr>
-                        <document:Pty>
-                            <document:Id>
-                                <document:OrgId>
-                                    <document:Othr>
-                                        <document:Id>X1A2S3D5F6G7H8J9K0C4S5C6D7V5D1K2<!--159 Уникальный Идентификатор Данных--></document:Id>
-                                        <document:SchmeNm>
-                                            <document:Prtry>PLNK<!--47 Тип Идентификатора Получателя--></document:Prtry>
-                                        </document:SchmeNm>
-                                    </document:Othr>
-                                </document:OrgId>
-                            </document:Id>
-                        </document:Pty>
-                    </document:Cdtr>
-                </document:OrgnlTxRef>
-                <document:SplmtryData>
-                    <document:Envlp>
-                        <document:IpsDt>
-                            <document:TrnCV>E0X7hpVPgDSvie9GufqMMAwGCCqFAwcBAQEBBQAEQFi0UjbNG3vUE+enkf9WRXSOkCxd2SS2mfYf6NxX3fnsjc73FKVfUTAxLSCkdW81D+hgJiHoVXA7ImggKxWipuE=<!--103 Контрольное значение Операции СБП--></document:TrnCV>
-                            <document:OperDate>2019-01-01<!--112 Операционный День Обработки Сообщения ОПКЦ СБП--></document:OperDate>
-                            <document:OperSubType>B2BPUSH<!--49 Сценарий Операции СБП --></document:OperSubType>
-                            <document:OperProcDate>2001-12-17<!--111 Операционный День Обработки Операции ОПКЦ СБП--></document:OperProcDate>
-                        </document:IpsDt>
-                    </document:Envlp>
-                </document:SplmtryData>
-            </document:TxInfAndSts>
-        </document:FIToFIPmtStsRpt>
-    </document:Document>
+<?xml version="1.0" encoding="UTF-8"?>
+<IPSEnvelope
+	xmlns="ISO200022PayMessageResponse"
+	xmlns:header="urn:iso:std:iso:20022:tech:xsd:head.001.001.01"
+	xmlns:document="urn:iso:std:iso:20022:tech:xsd:pacs.002.001.09"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="ISO200022PayMessageResponse PayMsgRes.xsd">
+	<header:AppHdr>
+		<header:Fr>
+			<header:FIId>
+				<header:FinInstnId>
+					<header:Othr>
+						<header:Id>000000000000</header:Id>
+					</header:Othr>
+				</header:FinInstnId>
+			</header:FIId>
+		</header:Fr>
+		<header:To>
+			<header:FIId>
+				<header:FinInstnId>
+					<header:Othr>
+						<header:Id>100000000003</header:Id>
+					</header:Othr>
+				</header:FinInstnId>
+			</header:FIId>
+		</header:To>
+		<header:BizMsgIdr>{TxId}</header:BizMsgIdr>
+		<header:MsgDefIdr>pacs.002.001.09</header:MsgDefIdr>
+		<header:BizSvc>M23</header:BizSvc>
+		<header:CreDt>2022-10-05T13:31:37.605Z</header:CreDt>
+		<Sgntr
+			xmlns="urn:iso:std:iso:20022:tech:xsd:head.001.001.01">
+			<Sign
+				xmlns="http://www.w3.org/2000/09/xmldsig#">MIIBogYJKoZIhvcNAQcCoIIBkzCCAY8CAQExDjAMBggqhQMHAQECAgUAMAsGCSqGSIb3DQEHATGCAWswggFnAgEBMIGYMIGDMQswCQYDVQQGEwJSVTEPMA0GA1UECAwGTW9zY293MQ8wDQYDVQQHDAZNb3Njb3cxETAPBgNVBAoMCE5TUEsgSlNDMRwwGgYDVQQLDBNTZWN1cml0eSBEZXBhcnRtZW50MQ0wCwYDVQQLDARPS1pJMRIwEAYDVQQDDAlTQlBUZXN0Q0ECEEBgG5Dh+6D//bAXVmJQN34wDAYIKoUDBwEBAgIFAKBpMBgGCSqGSIb3DQEJAzELBgkqhkiG9w0BBwEwHAYJKoZIhvcNAQkFMQ8XDTIyMTAwNTEzMzEzN1owLwYJKoZIhvcNAQkEMSIEILAvB3hyMDBkoP7r7HLshr6jfE46AoAlBxtP4p7Z6L68MAwGCCqFAwcBAQEBBQAEQEcyvaS08dvCcbdsHtDhkx/rrbPLl8kF5Lzq5TUY4XvTy22g7xOdyqxDOWB7pzGtVSe8Sv+JoWBqw2P8fqm9cAE=
+			</Sign>
+		</Sgntr>
+	</header:AppHdr>
+	<document:Document>
+		<document:FIToFIPmtStsRpt>
+			<document:GrpHdr>
+				<document:MsgId>{MsgId}</document:MsgId>
+				<document:CreDtTm>2022-10-05T13:31:37.605Z</document:CreDtTm>
+			</document:GrpHdr>
+			<document:TxInfAndSts>
+				<document:OrgnlEndToEndId>B2B</document:OrgnlEndToEndId>
+				<document:OrgnlTxId>{TxId}</document:OrgnlTxId>
+				<document:TxSts>ACWP</document:TxSts>
+				<document:StsRsnInf>
+					<document:Rsn>
+						<document:Prtry>I00000</document:Prtry>
+					</document:Rsn>
+					<document:AddtlInf>OPKC_OK</document:AddtlInf>
+				</document:StsRsnInf>
+				<document:AccptncDtTm>2022-10-05T18:31:08.393Z</document:AccptncDtTm>
+				<document:OrgnlTxRef>
+					<document:DbtrAgt>
+						<document:FinInstnId>
+							<document:Othr>
+								<document:Id>100000000003</document:Id>
+							</document:Othr>
+						</document:FinInstnId>
+					</document:DbtrAgt>
+					<document:CdtrAgt>
+						<document:FinInstnId>
+							<document:Othr>
+								<document:Id>100000000003</document:Id>
+							</document:Othr>
+						</document:FinInstnId>
+					</document:CdtrAgt>
+					<document:Cdtr>
+						<document:Pty>
+							<document:Id>
+								<document:OrgId>
+									<document:Othr>
+										<document:Id>AD1B003LRJEBBU4N9I0BAK4V97CB7R4N</document:Id>
+										<document:SchmeNm>
+											<document:Prtry>PLNK</document:Prtry>
+										</document:SchmeNm>
+									</document:Othr>
+								</document:OrgId>
+							</document:Id>
+						</document:Pty>
+					</document:Cdtr>
+				</document:OrgnlTxRef>
+				<document:SplmtryData>
+					<document:Envlp>
+						<document:IpsDt>
+							<document:TrnCV>B7J3CF7NYPPBJIZIN8XVAYYLMRLPLZBTV8IVKA0QXTLXQRMZ8SSMGMDWVZG65EZVH2QH5RTU4RODYP7IBPBGZ63NTLCA6JVX93OHZQ51MTM536I1IZT7Z2X6J19ZIT7C</document:TrnCV>
+							<document:OperDate>2022-10-05</document:OperDate>
+							<document:OperSubType>B2BPUSH</document:OperSubType>
+							<document:OperProcDate>2022-10-05</document:OperProcDate>
+						</document:IpsDt>
+					</document:Envlp>
+				</document:SplmtryData>
+			</document:TxInfAndSts>
+		</document:FIToFIPmtStsRpt>
+	</document:Document>
 </IPSEnvelope>

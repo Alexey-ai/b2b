@@ -16,10 +16,10 @@ func NewHandler(services *service.Service) *Handler {
 func (h *Handler) InitRoutes() *gin.Engine {
 	router := gin.New()
 
-	t := router.Group("/{version}/request/{operationType}")
+	t := router.Group("/:version/request/:operationtype")
 	{
-		t.POST("/{endpoint}/{messageType}", h.B2BPost)
-		t.POST("/{endpoint}/:txId/{messageType}", h.B2BPost)
+		t.POST("/:endpoint/:txId", h.B2BPost)
+		t.POST("/:endpoint/:txId/:messageType", h.B2BPost)
 		t.POST("/testPost", h.testPost)
 		t.GET("/test", h.testGet)
 	}

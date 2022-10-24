@@ -1,3 +1,5 @@
-port: "8000"
+port: "8080"
 
 b2bhost: "http://localhost:666/v01/request/B2B/1000003/{TxId}/{MsgType}"
+
+sendm07: true
